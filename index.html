@@ -154,8 +154,8 @@ h1.hero-h em{font-family:var(--serif);font-style:italic;font-weight:600;letter-s
 .trust span{display:inline-flex;align-items:center;gap:7px}
 .trust svg{width:15px;height:15px;color:var(--teal)}
 
-.hero-stage{position:relative;height:clamp(460px,86vh,860px);display:flex;align-items:flex-end;justify-content:center;align-self:end}
-.stage-house{position:absolute;bottom:7%;left:38%;width:min(155%,820px);height:auto;max-width:none;z-index:1;
+.hero-stage{position:relative;height:clamp(500px,94vh,960px);display:flex;align-items:flex-end;justify-content:center;align-self:end}
+.stage-house{position:absolute;bottom:7%;left:36%;width:min(160%,880px);height:auto;max-width:none;z-index:1;
   filter:drop-shadow(0 22px 32px rgba(120,80,60,.20));animation:sway 16s ease-in-out infinite alternate}
 @keyframes sway{from{transform:translate(-50%,0)}to{transform:translate(-48%,-11px)}}
 .stage-bibi{position:relative;z-index:3;height:100%;width:auto;max-width:none;margin-right:-16%;
@@ -164,7 +164,7 @@ h1.hero-h em{font-family:var(--serif);font-style:italic;font-weight:600;letter-s
 .stage-floor{position:absolute;bottom:1%;left:56%;transform:translateX(-50%);width:56%;height:30px;z-index:2;border-radius:50%;
   background:radial-gradient(ellipse,rgba(110,70,55,.30),transparent 70%);filter:blur(9px)}
 @media(max-width:960px){
-  .hero-stage{height:clamp(360px,56vh,520px);margin-top:2px}
+  .hero-stage{height:clamp(390px,60vh,580px);margin-top:2px}
   .stage-house{bottom:12%;width:min(130%,500px)}
   @keyframes sway{from{transform:translate(-52%,0)}to{transform:translate(-50%,-9px)}}
   .stage-bibi{margin-right:0}
@@ -195,9 +195,24 @@ h2.sec-h em.rainbow{background:linear-gradient(100deg,var(--coral),var(--sun) 50
 .searchband{padding:clamp(48px,6vw,72px) 0;background:linear-gradient(180deg,var(--porcelain),var(--cream))}
 .searchcard{background:#fff;border-radius:24px;padding:24px;box-shadow:var(--shadow-l);border:1px solid var(--line);transition:.5s var(--ease)}
 .searchcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-l),0 0 60px rgba(0,169,224,.16)}
-.search-row{display:grid;grid-template-columns:1.7fr repeat(4,1fr) auto;gap:11px}
-@media(max-width:1080px){.search-row{grid-template-columns:1fr 1fr 1fr}.search-row .sq,.search-row .btn{grid-column:span 3}}
-@media(max-width:620px){.search-row{grid-template-columns:1fr 1fr}.search-row .sq,.search-row .btn{grid-column:span 2}}
+.search-top{margin-bottom:11px}
+.search-row{display:grid;grid-template-columns:repeat(5,1fr) auto;gap:11px}
+@media(max-width:1080px){.search-row{grid-template-columns:1fr 1fr 1fr}.search-row .btn{grid-column:span 3}}
+@media(max-width:620px){.search-row{grid-template-columns:1fr 1fr}.search-row .btn{grid-column:span 2}}
+/* filled search fields light up and check, same as the intake form */
+.fld .ftick{position:absolute;right:13px;top:50%;transform:translateY(-50%) scale(.4);width:20px;height:20px;border-radius:50%;
+  display:grid;place-items:center;opacity:0;pointer-events:none;transition:.4s var(--ease);
+  background:var(--teal);color:#fff;box-shadow:var(--glow-teal);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.6'%3E%3Cpath d='m5 13 4 4L19 7'/%3E%3C/svg%3E");
+  background-size:11px 11px;background-repeat:no-repeat;background-position:center}
+.fld.done input,.fld.done select{animation:goldflash 1.05s var(--ease) forwards;border-color:var(--teal);background:#F0FCFA}
+.fld.done .ftick{opacity:1;transform:translateY(-50%) scale(1)}
+.fld.done.sel::after{border-color:var(--teal);right:36px}
+.fld.done select{padding-right:62px}
+.clearbar{display:flex;justify-content:flex-end;margin-top:10px}
+.clearlink{background:none;border:none;cursor:pointer;font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink3);padding:8px 12px;border-radius:9px;transition:.3s var(--ease)}
+.clearlink:hover{color:var(--coral);background:rgba(255,95,143,.09);transform:translateY(-1px)}
 .fld{position:relative}
 .fld input,.fld select{width:100%;height:54px;padding:0 15px;border-radius:13px;background:var(--porcelain);border:1.5px solid var(--line);color:var(--ink);font-size:14.5px;font-weight:500;outline:none;transition:.32s var(--ease);appearance:none;-webkit-appearance:none;cursor:pointer}
 .fld input{cursor:text}
@@ -207,7 +222,7 @@ h2.sec-h em.rainbow{background:linear-gradient(100deg,var(--coral),var(--sun) 50
 .fld:hover input,.fld:hover select,.fld input:focus,.fld select:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(0,169,224,.13),0 0 24px rgba(0,200,255,.22)}
 .fld:hover.sel::after{border-color:var(--blue)}
 .search-split{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:16px;padding-top:16px;border-top:1px dashed var(--line)}
-.search-split span{flex:1;min-width:240px;font-size:13px;color:var(--ink2);font-weight:500}
+.search-split span{flex:1;min-width:250px;font-size:15.5px;line-height:1.55;color:var(--ink);font-weight:600}
 .search-note{margin:12px 3px 0;font-size:12.5px;color:var(--ink3)}
 .search-note b{color:var(--blue);font-weight:700}
 
@@ -301,15 +316,15 @@ h2.sec-h em.rainbow{background:linear-gradient(100deg,var(--coral),var(--sun) 50
 .thanks p b{color:var(--blue);font-weight:700}
 
 /* ---------- family band ---------- */
-.family{position:relative;overflow:hidden;padding:clamp(78px,9vw,124px) 0;text-align:center;min-height:clamp(400px,40vw,560px);display:flex;align-items:center;background:#0A1A2A}
+.family{position:relative;overflow:hidden;padding:clamp(60px,7vw,90px) 0;text-align:center;min-height:100svh;display:flex;align-items:center;background:#060D16}
 
 .family-bg{position:absolute;inset:0;background-size:cover;background-position:center}
 .family-scrim{position:absolute;inset:0;background:
-  linear-gradient(180deg,rgba(8,20,34,.70) 0%,rgba(8,20,34,.62) 42%,rgba(8,20,34,.84) 100%),
-  radial-gradient(58% 74% at 50% 50%,rgba(8,20,34,.42),transparent 72%)}
+  linear-gradient(180deg,rgba(6,13,22,.66) 0%,rgba(6,13,22,.50) 38%,rgba(6,13,22,.80) 100%),
+  radial-gradient(52% 46% at 50% 46%,rgba(6,13,22,.62),transparent 74%)}
 
 .family .inner{position:relative;z-index:2}
-.family h2{font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(1.4rem,4.2vw,2.9rem);line-height:1.26;margin:0 auto;max-width:17ch;color:#fff;text-shadow:0 4px 30px rgba(8,24,42,.85)}
+.family h2{font-family:var(--serif);font-weight:600;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(1.55rem,4.6vw,3.4rem);line-height:1.26;margin:0 auto;max-width:17ch;color:#fff;text-shadow:0 4px 30px rgba(8,24,42,.85)}
 .family h2 span{color:var(--gold)}
 .family p{margin:20px auto 0;max-width:56ch;color:#F1F6FA;font-size:clamp(.95rem,1.6vw,1.06rem);text-shadow:0 2px 18px rgba(8,24,42,.9)}
 .family .tag{display:inline-block;margin-bottom:20px;font-size:10.5px;font-weight:800;letter-spacing:.28em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.16);backdrop-filter:blur(8px);padding:8px 16px;border-radius:999px}
@@ -336,12 +351,14 @@ h2.sec-h em.rainbow{background:linear-gradient(100deg,var(--coral),var(--sun) 50
 .pull::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;border-radius:4px;background:var(--accent)}
 
 /* ---------- stats ---------- */
-.stats{background:linear-gradient(180deg,var(--cream),var(--porcelain))}
-.stat{text-align:center;padding:30px 18px;border-radius:20px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-s);transition:.5s var(--ease)}
-.stat:hover{transform:translateY(-8px);box-shadow:var(--shadow-l)}
+.stats{background:#05070b;position:relative;overflow:hidden}
+.stats::before{content:"";position:absolute;inset:0;background:radial-gradient(65% 70% at 50% 0%,rgba(0,200,255,.14),transparent 62%);pointer-events:none}
+.stats .wrap{position:relative;z-index:2}
+.stat{text-align:center;padding:30px 18px;border-radius:20px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);transition:.5s var(--ease)}
+.stat:hover{transform:translateY(-8px);background:rgba(0,200,255,.09);border-color:rgba(0,200,255,.34);box-shadow:0 0 44px rgba(0,200,255,.16)}
 .stat .big{font-family:var(--serif);font-size:clamp(2.2rem,5vw,3.3rem);font-weight:700;line-height:1;margin-bottom:10px;
   background:linear-gradient(120deg,var(--coral),var(--sun) 50%,var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
-.stat .lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);font-weight:700;line-height:1.6}
+.stat .lbl{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#B9C9D6;font-weight:700;line-height:1.6}
 
 /* ---------- consult ---------- */
 .consult{text-align:center;background:linear-gradient(160deg,#FFF3E4,#FFE9F0 48%,#E6F7FF);overflow:hidden}
@@ -378,15 +395,15 @@ h2.sec-h em.rainbow{background:linear-gradient(100deg,var(--coral),var(--sun) 50
 .news .ok.on{display:block;animation:rise .5s}
 
 /* ---------- footer ---------- */
-footer{padding:clamp(56px,7vw,88px) 0 30px;background:linear-gradient(160deg,var(--deep),var(--deep2) 62%,#134F6D);color:#D8E8F2;position:relative;overflow:hidden}
-footer::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 80% 0%,rgba(0,200,255,.18),transparent 60%),radial-gradient(50% 45% at 5% 100%,rgba(255,95,143,.14),transparent 60%);pointer-events:none}
+footer{padding:clamp(56px,7vw,88px) 0 30px;background:#05070b;color:#D8E8F2;position:relative;overflow:hidden}
+footer::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 12%,rgba(0,200,255,.13),transparent 62%),radial-gradient(50% 45% at 8% 100%,rgba(255,95,143,.07),transparent 60%);pointer-events:none}
 .foot-in{position:relative;z-index:2}
 .foot-logo{display:block;width:min(62%,340px);margin:0 auto 6px;animation:markpulse 6s ease-in-out infinite;filter:drop-shadow(0 0 34px rgba(0,200,255,.35))}
 @keyframes markpulse{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.04);opacity:1}}
 .bigmark{text-align:center;font-weight:800;letter-spacing:.02em;text-transform:uppercase;line-height:1;white-space:nowrap;
-  font-size:clamp(1.5rem,8.8vw,7.6rem);color:rgba(255,255,255,.10);user-select:none;
+  font-size:clamp(1.5rem,8.8vw,7.6rem);color:rgba(255,255,255,.085);user-select:none;
   margin:0 0 clamp(30px,5vw,54px);animation:markpulse 5.5s ease-in-out infinite;transition:color .6s}
-.bigmark .x{color:rgba(18,214,198,.5);text-shadow:0 0 40px rgba(18,214,198,.45)}
+.bigmark .x{color:rgba(18,214,198,.62);text-shadow:0 0 46px rgba(18,214,198,.55)}
 .bigmark:hover{color:rgba(0,229,255,.18)}
 .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:32px}
 @media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
@@ -453,7 +470,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(6
 
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow rv"><span class="dot"></span>South Florida &nbsp;&middot;&nbsp; Dallas &nbsp;&middot;&nbsp; Fort Worth &nbsp;&middot;&nbsp; Austin</span>
+      <span class="eyebrow rv"><span class="dot"></span>South Florida &nbsp;&middot;&nbsp; Northern Texas</span>
       <h1 class="hero-h rv d1">Find the one that <em>feels like home,</em> with BiBi.</h1>
       <p class="hero-sub rv d2">Buying, selling, or just curious what your place is worth today and why. We work <b>every price point in every neighborhood</b>, and you always get a real, understanding person on the phone.</p>
       <div class="hero-cta rv d3">
@@ -489,19 +506,21 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(6
       <p class="sec-p">On-market goes straight to the live listings. Off-market is everything nobody has listed yet, and that is where the real deals hide.</p>
     </div>
     <form class="searchcard rv d1" id="idxForm">
+      <div class="fld sq search-top"><input type="text" id="q" placeholder="Address, neighborhood, city or ZIP" aria-label="Address, neighborhood, city or ZIP"><span class="ftick"></span></div>
       <div class="search-row">
-        <div class="fld sq"><input type="text" id="q" placeholder="Address, neighborhood, city or ZIP" aria-label="Address, neighborhood, city or ZIP"></div>
-        <div class="fld sel"><select id="status" aria-label="Listing status"><option value="">For Sale</option><option>For Rent</option><option>Sold</option><option>New Construction</option><option>Coming Soon</option></select></div>
-        <div class="fld sel"><select id="price" aria-label="Price"><option value="">Any Price</option><option>Under $300K</option><option>$300K - $500K</option><option>$500K - $750K</option><option>$750K - $1M</option><option>$1M - $2M</option><option>$2M+</option></select></div>
-        <div class="fld sel"><select id="type" aria-label="Home type"><option value="">All Home Types</option><option>Single Family</option><option>Condo</option><option>Townhouse</option><option>Multi-Family</option><option>Land / Lot</option><option>Mobile / Manufactured</option></select></div>
-        <div class="fld sel"><select id="beds" aria-label="Beds and baths"><option value="">Beds &amp; Baths</option><option>1+ bd</option><option>2+ bd</option><option>3+ bd</option><option>4+ bd</option><option>5+ bd</option></select></div>
-        <button class="btn btn-primary" type="submit" style="padding:0 26px;height:54px">On&nbsp;Market</button>
+        <div class="fld sel"><select id="status" aria-label="Listing status"><option value="">For Sale</option><option>For Rent</option><option>Sold</option><option>New Construction</option><option>Coming Soon</option></select><span class="ftick"></span></div>
+        <div class="fld sel"><select id="price" aria-label="Price"><option value="">Any Price</option><option>Under $300K</option><option>$300K - $500K</option><option>$500K - $750K</option><option>$750K - $1M</option><option>$1M - $2M</option><option>$2M+</option></select><span class="ftick"></span></div>
+        <div class="fld sel"><select id="type" aria-label="Home type"><option value="">All Home Types</option><option>Single Family</option><option>Condo</option><option>Townhouse</option><option>Multi-Family</option><option>Land / Lot</option><option>Mobile / Manufactured</option></select><span class="ftick"></span></div>
+        <div class="fld sel"><select id="beds" aria-label="Bedrooms"><option value="">Any Beds</option><option>1+ bd</option><option>2+ bd</option><option>3+ bd</option><option>4+ bd</option><option>5+ bd</option></select><span class="ftick"></span></div>
+        <div class="fld sel"><select id="baths" aria-label="Bathrooms"><option value="">Any Baths</option><option>1+ ba</option><option>1.5+ ba</option><option>2+ ba</option><option>3+ ba</option><option>4+ ba</option></select><span class="ftick"></span></div>
+        <button class="btn btn-primary" type="submit" style="padding:0 24px;height:54px">On&nbsp;Market</button>
       </div>
       <div class="search-split">
         <button class="btn btn-sun" type="button" id="offMarketBtn">Find It Off Market</button>
-        <span>Not listed anywhere? We hunt it down for you with tools the public can't get into.</span>
+        <span>Not listed anywhere? We hunt it down for you and give you the comps, with tools the public can't get into.</span>
       </div>
       <p class="search-note">Or just <b>text BiBi at (754) 226-9387</b> and she'll pull it up for you.</p>
+      <div class="clearbar"><button type="button" class="clearlink" data-clear="idxForm">Clear search</button></div>
     </form>
   </div>
 </section>
@@ -633,6 +652,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(6
           <span class="err">This one is required. It tells us what's actually working.</span>
         </div>
         <button class="btn btn-sun" type="submit" style="width:100%;margin-top:6px">Send My Valuation Request</button>
+        <div class="clearbar"><button type="button" class="clearlink" data-clear="valForm">Clear this form</button></div>
         <p class="fineprint">We never sell or share your information. By submitting you agree we may contact you about your property.</p>
       </form>
 
@@ -830,6 +850,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(6
           <textarea id="c_msg" name="Message" placeholder="Timeline, the property address, the situation, questions. Whatever helps."></textarea>
         </div>
         <button class="btn btn-sun" type="submit" style="width:100%;margin-top:4px">Send &amp; Book My Call</button>
+        <div class="clearbar"><button type="button" class="clearlink" data-clear="conForm">Clear this form</button></div>
         <p class="fineprint">We never sell or share your information. By submitting you agree we may contact you.</p>
       </form>
 
@@ -913,16 +934,46 @@ function readSearch(){
     status:document.getElementById('status').value||'For Sale',
     price:document.getElementById('price').value,
     type:document.getElementById('type').value,
-    beds:document.getElementById('beds').value
+    beds:document.getElementById('beds').value,
+    baths:document.getElementById('baths').value
   };
 }
+/* every filled search field flashes gold then settles green with a check */
+(function litSearch(){
+  document.querySelectorAll('#idxForm .fld').forEach(f=>{
+    const el=f.querySelector('input,select'); if(!el) return;
+    const paint=()=>{
+      const on=!!(el.value||'').trim();
+      if(on){ if(!f.classList.contains('done')){f.classList.remove('done');void f.offsetWidth;f.classList.add('done');} }
+      else f.classList.remove('done');
+    };
+    el.addEventListener('change',paint);
+    el.addEventListener('blur',paint);
+  });
+})();
+/* clear buttons */
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-clear]'); if(!b) return;
+  const form=document.getElementById(b.dataset.clear); if(!form) return;
+  form.querySelectorAll('input,select,textarea').forEach(el=>{
+    if(el.type==='hidden') return;
+    el.value=''; if(el.tagName==='SELECT') el.selectedIndex=0;
+    el.style.borderColor=''; el.style.boxShadow='';
+  });
+  form.querySelectorAll('.field,.fld').forEach(f=>f.classList.remove('done','bad'));
+  form.querySelectorAll('.fixit').forEach(f=>{f.classList.remove('on');f.innerHTML='';f.dataset.sug='';});
+  const bar=form.querySelector('.prog i'); if(bar) bar.style.width='0%';
+  const msg=form.querySelector('.prog-txt');
+  if(msg){ msg.classList.remove('hot'); msg.textContent = form.id==='valForm' ? "Let's start with the address" : 'Start with your name'; }
+  const first=form.querySelector('input:not([type=hidden]),select,textarea'); if(first) first.focus();
+});
 document.getElementById('idxForm').addEventListener('submit',e=>{
   e.preventDefault();
   const s=readSearch();
   if(CONFIG.ONMARKET_URL){
     const p=new URLSearchParams();
     if(s.q)p.set('q',s.q);
-    ['status','price','type','beds'].forEach(k=>{ if(s[k]) p.set(k,s[k]); });
+    ['status','price','type','beds','baths'].forEach(k=>{ if(s[k]) p.set(k,s[k]); });
     const b=CONFIG.ONMARKET_URL;
     window.open(b+(b.includes('?')?'&':'?')+p.toString(),'_blank','noopener');
     return;
@@ -931,13 +982,14 @@ document.getElementById('idxForm').addEventListener('submit',e=>{
   const parts=['https://www.zillow.com', slug(s.q)||'fl', STATUS_PATH[s.status]||'for_sale'];
   if(s.type&&TYPE_PATH[s.type]) parts.push(TYPE_PATH[s.type]);
   if(s.beds) parts.push(parseInt(s.beds,10)+'-beds');
+  if(s.baths) parts.push(parseFloat(s.baths)+'-baths');
   if(s.price&&PRICE_PATH[s.price]) parts.push(PRICE_PATH[s.price]);
   window.open(parts.join('/')+'/','_blank','noopener');
 });
 document.getElementById('offMarketBtn').addEventListener('click',()=>{
   const s=readSearch();
   if(CONFIG.OFFMARKET_URL){ window.open(CONFIG.OFFMARKET_URL,'_blank','noopener'); return; }
-  const bits=[s.q&&('Area or address: '+s.q), s.type&&('Type: '+s.type), s.beds&&('Beds: '+s.beds), s.price&&('Budget: '+s.price)].filter(Boolean);
+  const bits=[s.q&&('Area or address: '+s.q), s.type&&('Type: '+s.type), s.beds&&('Beds: '+s.beds), s.baths&&('Baths: '+s.baths), s.price&&('Budget: '+s.price)].filter(Boolean);
   openConsult();
   setTimeout(()=>{
     const msg=document.getElementById('c_msg');
