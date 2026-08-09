@@ -79,18 +79,24 @@ header.nav.solid{background:rgba(253,250,246,.95);box-shadow:0 8px 30px rgba(16,
 .nav-cta{display:inline-flex;align-items:center;gap:7px;padding:11px 19px;border-radius:999px;background:linear-gradient(120deg,var(--blue),var(--teal));color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;box-shadow:0 6px 20px rgba(0,169,224,.32);transition:.35s var(--ease)}
 .nav-cta:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 10px 30px rgba(0,169,224,.5),var(--glow)}
 .langsw{display:inline-flex;gap:2px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:3px;box-shadow:var(--shadow-s)}
-.langsw button{border:none;background:none;cursor:pointer;font-size:10.5px;font-weight:800;letter-spacing:.04em;color:var(--ink3);padding:7px 8px;border-radius:999px;transition:.28s var(--ease)}
+.langsw button{border:none;background:none;cursor:pointer;font-size:10.5px;font-weight:800;letter-spacing:.04em;
+  color:var(--ink3);padding:0 9px;height:28px;min-width:40px;display:inline-flex;align-items:center;justify-content:center;
+  border-radius:999px;transition:.28s var(--ease)}
+.langsw .flg{width:21px;height:14px;border-radius:2.5px;display:block;box-shadow:0 0 0 1px rgba(16,28,42,.22);
+  transition:transform .28s var(--ease)}
+.langsw button:hover .flg{transform:scale(1.12)}
+.langsw button.on .flg{box-shadow:0 0 0 1.5px #fff,0 0 0 2.5px rgba(0,169,224,.5)}
 .langsw button:hover{color:var(--ink)}
 .langsw button.on{background:linear-gradient(120deg,var(--blue),var(--teal));color:#fff;box-shadow:0 3px 12px rgba(0,169,224,.35)}
 .langsw-m{display:none}
-@media(max-width:1280px){
+@media(max-width:1380px){
   .nav-in .langsw:not(.langsw-m){display:none}
   .langsw-m{display:inline-flex;margin:14px auto 4px;align-self:center}
 }
 .burger{display:none;background:#fff;border:1px solid var(--line);border-radius:11px;padding:9px 11px;cursor:pointer;transition:.3s}
 .burger:hover{border-color:var(--blue);box-shadow:var(--glow)}
 .burger span{display:block;width:20px;height:2px;background:var(--ink);margin:4px 0;border-radius:2px}
-@media(max-width:1280px){
+@media(max-width:1380px){
   .nav-links{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:rgba(253,250,246,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);padding:8px 18px 20px;transform:translateY(-135%);transition:transform .5s var(--ease);box-shadow:0 20px 40px rgba(16,28,42,.10)}
   .nav-links.open{transform:translateY(0)}
   .nav-links a{padding:14px 8px;font-size:14px;border-bottom:1px solid var(--line)}
@@ -502,19 +508,19 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(7
       <a href="#family">Our Family</a>
       <a href="#contact">Contact</a>
       <div class="langsw langsw-m" role="group" aria-label="Language">
-        <button type="button" data-lang="en" class="on">EN</button>
-        <button type="button" data-lang="es">ES</button>
-        <button type="button" data-lang="ht">HT</button>
-        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="en" class="on" title="English" aria-label="English"><svg class="flg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><g fill="#B22234"><rect width="30" height="1.54"/><rect y="3.08" width="30" height="1.54"/><rect y="6.15" width="30" height="1.54"/><rect y="9.23" width="30" height="1.54"/><rect y="12.31" width="30" height="1.54"/><rect y="15.38" width="30" height="1.54"/><rect y="18.46" width="30" height="1.54"/></g><rect width="12.4" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2.1" cy="1.9" r=".62"/><circle cx="5.2" cy="1.9" r=".62"/><circle cx="8.3" cy="1.9" r=".62"/><circle cx="10.7" cy="1.9" r=".62"/><circle cx="3.6" cy="3.9" r=".62"/><circle cx="6.7" cy="3.9" r=".62"/><circle cx="9.5" cy="3.9" r=".62"/><circle cx="2.1" cy="5.9" r=".62"/><circle cx="5.2" cy="5.9" r=".62"/><circle cx="8.3" cy="5.9" r=".62"/><circle cx="10.7" cy="5.9" r=".62"/><circle cx="3.6" cy="8.1" r=".62"/><circle cx="6.7" cy="8.1" r=".62"/><circle cx="9.5" cy="8.1" r=".62"/></g></svg></button>
+        <button type="button" data-lang="es" title="Español" aria-label="Español">ESP</button>
+        <button type="button" data-lang="ht" title="Kreyòl Ayisyen" aria-label="Kreyòl Ayisyen"><svg class="flg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#00209F"/><rect y="10" width="30" height="10" fill="#D21034"/><rect x="10.6" y="5.4" width="8.8" height="9.2" fill="#fff"/><path d="M15 7.1v5.4" stroke="#0B7A3B" stroke-width=".9"/><path d="M15 8.2c-1.5-.5-2.4.1-2.7.9M15 8.2c1.5-.5 2.4.1 2.7.9M15 9.9c-1.2-.4-2 .1-2.3.8M15 9.9c1.2-.4 2 .1 2.3.8" stroke="#0B7A3B" stroke-width=".7" fill="none" stroke-linecap="round"/><circle cx="15" cy="6.7" r=".85" fill="#F1C40F"/><path d="M11.6 13.1h6.8" stroke="#8A5A2B" stroke-width="1.1" stroke-linecap="round"/></svg></button>
+        <button type="button" data-lang="fr" title="Français" aria-label="Français">FRE</button>
       </div>
     </nav>
     <div style="display:flex;gap:10px;align-items:center">
       <a class="nav-cta" href="tel:+17542269387"><span class="lbl">Call</span> (754) 226-9387</a>
       <div class="langsw" role="group" aria-label="Language">
-        <button type="button" data-lang="en" class="on">EN</button>
-        <button type="button" data-lang="es">ES</button>
-        <button type="button" data-lang="ht">HT</button>
-        <button type="button" data-lang="fr">FR</button>
+        <button type="button" data-lang="en" class="on" title="English" aria-label="English"><svg class="flg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#fff"/><g fill="#B22234"><rect width="30" height="1.54"/><rect y="3.08" width="30" height="1.54"/><rect y="6.15" width="30" height="1.54"/><rect y="9.23" width="30" height="1.54"/><rect y="12.31" width="30" height="1.54"/><rect y="15.38" width="30" height="1.54"/><rect y="18.46" width="30" height="1.54"/></g><rect width="12.4" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2.1" cy="1.9" r=".62"/><circle cx="5.2" cy="1.9" r=".62"/><circle cx="8.3" cy="1.9" r=".62"/><circle cx="10.7" cy="1.9" r=".62"/><circle cx="3.6" cy="3.9" r=".62"/><circle cx="6.7" cy="3.9" r=".62"/><circle cx="9.5" cy="3.9" r=".62"/><circle cx="2.1" cy="5.9" r=".62"/><circle cx="5.2" cy="5.9" r=".62"/><circle cx="8.3" cy="5.9" r=".62"/><circle cx="10.7" cy="5.9" r=".62"/><circle cx="3.6" cy="8.1" r=".62"/><circle cx="6.7" cy="8.1" r=".62"/><circle cx="9.5" cy="8.1" r=".62"/></g></svg></button>
+        <button type="button" data-lang="es" title="Español" aria-label="Español">ESP</button>
+        <button type="button" data-lang="ht" title="Kreyòl Ayisyen" aria-label="Kreyòl Ayisyen"><svg class="flg" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="10" fill="#00209F"/><rect y="10" width="30" height="10" fill="#D21034"/><rect x="10.6" y="5.4" width="8.8" height="9.2" fill="#fff"/><path d="M15 7.1v5.4" stroke="#0B7A3B" stroke-width=".9"/><path d="M15 8.2c-1.5-.5-2.4.1-2.7.9M15 8.2c1.5-.5 2.4.1 2.7.9M15 9.9c-1.2-.4-2 .1-2.3.8M15 9.9c1.2-.4 2 .1 2.3.8" stroke="#0B7A3B" stroke-width=".7" fill="none" stroke-linecap="round"/><circle cx="15" cy="6.7" r=".85" fill="#F1C40F"/><path d="M11.6 13.1h6.8" stroke="#8A5A2B" stroke-width="1.1" stroke-linecap="round"/></svg></button>
+        <button type="button" data-lang="fr" title="Français" aria-label="Français">FRE</button>
       </div>
       <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
