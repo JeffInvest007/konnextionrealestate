@@ -416,8 +416,20 @@ h2.sec-h em.rainbow{background:linear-gradient(100deg,var(--coral),var(--sun) 50
 @keyframes pulsebtn{0%,100%{box-shadow:0 0 0 0 rgba(0,169,224,.42),0 14px 34px rgba(0,169,224,.3)}70%{box-shadow:0 0 0 26px rgba(0,169,224,0),0 18px 44px rgba(0,169,224,.42)}}
 .bigbtn:hover{transform:scale(1.055);box-shadow:0 0 42px rgba(0,229,255,.7),0 20px 50px rgba(0,169,224,.45);animation-play-state:paused}
 .consult .sm{margin-top:20px;font-size:13.5px;color:var(--ink2);font-weight:600}
-.consult .langs{margin:14px 0 0;font-family:var(--serif);font-style:italic;font-weight:600;
-  font-size:clamp(1.15rem,2.4vw,1.65rem);color:var(--accent);letter-spacing:.01em}
+.consult .langs{margin:14px 0 0;font-size:0;letter-spacing:.01em}
+.consult .langs .amp{font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:clamp(1.15rem,2.4vw,1.65rem);color:var(--accent)}
+.langjump{background:none;border:none;padding:0;margin:0;cursor:pointer;display:inline-block;
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:clamp(1.15rem,2.4vw,1.65rem);color:var(--accent);
+  transition:transform .32s var(--ease),color .32s,text-shadow .32s;transform-origin:center}
+.langjump:hover,.langjump:focus-visible{color:var(--blue-dk);transform:scale(1.09) translateY(-2px);
+  text-shadow:0 0 18px rgba(0,169,224,.45)}
+.langjump:active{transform:scale(.98)}
+@keyframes langping{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(0,169,224,0)}
+  35%{transform:scale(1.22);box-shadow:0 0 0 10px rgba(0,169,224,.28)}
+  70%{transform:scale(1.06);box-shadow:0 0 0 18px rgba(0,169,224,0)}}
+.langsw button.ping{animation:langping 1.1s var(--ease) 2}
 .consult .sm a{font-weight:800;color:var(--blue-dk)}
 
 /* ---------- modal ---------- */
@@ -462,6 +474,9 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(7
 .fcol p,.fcol a{display:block;color:#B9D0DE;font-size:14.5px;margin:0 0 9px;transition:.3s;width:fit-content}
 .fcol a:hover{color:var(--blue-hot);text-shadow:0 0 14px rgba(0,229,255,.6);transform:translateX(3px)}
 .fcol .big{color:#fff;font-weight:700;font-size:16.5px}
+.foot-lang{display:block;margin:0 0 8px;font-size:15.5px;color:var(--gold);text-align:left}
+.foot-lang:first-of-type{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.12);width:100%}
+.foot-lang:hover,.foot-lang:focus-visible{color:var(--blue-hot);text-shadow:0 0 16px rgba(0,229,255,.6);transform:translateX(3px) scale(1.02)}
 .socials{display:flex;gap:11px;margin-top:8px}
 .soc{width:52px;height:38px;border-radius:9px;display:grid;place-items:center;color:#B9D0DE;background:rgba(255,255,255,.06);
   border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14);
@@ -484,7 +499,10 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(7
 /* sticky mobile bar */
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;gap:1px;background:var(--line);box-shadow:0 -8px 26px rgba(16,28,42,.14)}
 .callbar a,.callbar button{flex:1;padding:15px 8px;text-align:center;background:#fff;font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer}
-.callbar a{color:var(--teal)}.callbar button{color:var(--blue)}
+.callbar .cb-call{color:#F04E23}
+.callbar .cb-text{color:var(--teal)}
+.callbar button{color:var(--blue)}
+.callbar .cb-call:active{background:rgba(240,78,35,.12)}
 @media(max-width:760px){.callbar{display:flex}body{padding-bottom:52px}}
 
 @media (prefers-reduced-motion: reduce){
@@ -810,7 +828,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(7
     </div>
     <button class="bigbtn rv d1" data-open-consult>Book a Consultation</button>
     <p class="sm rv d2">Or reach out directly: <a href="tel:+17542269387">(754) 226-9387</a> &nbsp;&middot;&nbsp; <a href="mailto:Konnextionbbp@gmail.com">Konnextionbbp@gmail.com</a></p>
-    <p class="langs rv d3">Nou Pale Krey&ograve;l &nbsp;&amp;&nbsp; Hablamos Espa&ntilde;ol</p>
+    <p class="langs rv d3"><button type="button" class="langjump" data-lang="ht">Nou Pale Krey&ograve;l</button><span class="amp">&nbsp;&amp;&nbsp;</span><button type="button" class="langjump" data-lang="es">Hablamos Espa&ntilde;ol</button></p>
   </div>
 </section>
 
@@ -864,6 +882,8 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(7
         <a href="#value">Free home valuation</a>
         <a href="#" data-open-consult>Book a consultation</a>
         <a href="privacy.html">Privacy Policy</a>
+        <button type="button" class="langjump foot-lang" data-lang="ht">Nou Pale Krey&ograve;l</button>
+        <button type="button" class="langjump foot-lang" data-lang="es">Hablamos Espa&ntilde;ol</button>
       </div>
     </div>
     <div class="legal">
@@ -954,8 +974,8 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(7
 </div>
 
 <div class="callbar">
-  <a href="tel:+17542269387">Call</a>
-  <a href="sms:+17542269387">Text</a>
+  <a class="cb-call" href="tel:+17542269387">Call</a>
+  <a class="cb-text" href="sms:+17542269387">Text</a>
   <button data-open-consult>Book</button>
 </div>
 
@@ -1051,6 +1071,26 @@ function applyLang(code){
   document.querySelectorAll('.langsw button').forEach(b=>b.classList.toggle('on',b.dataset.lang===LANG));
   document.querySelectorAll('a[href^="privacy.html"]').forEach(a=>a.href='privacy.html'+(LANG==='en'?'':'?lang='+LANG));
 }
+function setLang(code,{scroll=false}={}){
+  applyLang(code);
+  const u=new URL(location.href);
+  if(code==='en') u.searchParams.delete('lang'); else u.searchParams.set('lang',code);
+  history.replaceState({},'',u);
+  if(scroll){
+    scrollTo({top:0,behavior:'smooth'});
+    // show them where the language buttons live, so they can find it next time
+    setTimeout(()=>{
+      const vis=[...document.querySelectorAll('.langsw')].find(s=>s.offsetParent!==null);
+      const btn=vis&&vis.querySelector('button[data-lang="'+code+'"]');
+      if(btn){btn.classList.remove('ping');void btn.offsetWidth;btn.classList.add('ping');
+        setTimeout(()=>btn.classList.remove('ping'),2600);}
+    },520);
+  }
+}
+document.addEventListener('click',e=>{
+  const j=e.target.closest('.langjump');
+  if(j){ e.preventDefault(); setLang(j.dataset.lang,{scroll:true}); }
+});
 document.querySelectorAll('.langsw button').forEach(b=>b.addEventListener('click',()=>{
   applyLang(b.dataset.lang);
   const u=new URL(location.href);
