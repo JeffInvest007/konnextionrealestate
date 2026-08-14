@@ -518,6 +518,26 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(7
   html{scroll-behavior:auto}
 }
 </style>
+<!-- Lead event tracking: phone, email, form -->
+<script>
+(function () {
+  function send(n, p) { if (typeof gtag === 'function') { gtag('event', n, p); } }
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    var a = t && t.closest ? t.closest('a[href^="tel:"], a[href^="mailto:"], a[href^="sms:"]') : null;
+    if (!a) return;
+    var h = a.getAttribute('href') || '';
+    var n = h.indexOf('tel:') === 0 ? 'phone_call' : (h.indexOf('sms:') === 0 ? 'sms_click' : 'email_click');
+    send(n, { link_url: h, page_location: location.href });
+  }, true);
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    var fid = 'unnamed';
+    try { fid = f.id || f.getAttribute('name') || 'unnamed'; } catch (err) {}
+    send('form_submission', { form_id: fid, page_location: location.href });
+  }, true);
+})();
+</script>
 </head>
 <body>
 
