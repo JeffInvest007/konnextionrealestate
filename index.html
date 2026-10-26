@@ -727,7 +727,7 @@ footer::before{content:"";position:absolute;inset:0;background:radial-gradient(7
         <h3 class="form-title">Get your free valuation</h3>
         <p class="form-note">A few fields. Then a person, not a robot, goes and does the work.</p>
         <div class="prog"><i id="valBar"></i></div>
-        <p class="prog-txt" id="valMsg">Let's start with the address</p>
+        <p class="prog-txt" id="valMsg">Start with your name</p>
         <input type="text" class="hp" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="field" data-req>
@@ -1205,7 +1205,7 @@ document.addEventListener('click',e=>{
   form.querySelectorAll('.fixit').forEach(f=>{f.classList.remove('on');f.innerHTML='';f.dataset.sug='';});
   const bar=form.querySelector('.prog i'); if(bar) bar.style.width='0%';
   const msg=form.querySelector('.prog-txt');
-  if(msg){ msg.classList.remove('hot'); msg.textContent = form.id==='valForm' ? "Let's start with the address" : 'Start with your name'; }
+  if(msg){ msg.classList.remove('hot'); msg.textContent = 'Start with your name'; }
   const first=form.querySelector('input:not([type=hidden]),select,textarea'); if(first) first.focus();
 });
 document.getElementById('idxForm').addEventListener('submit',e=>{
@@ -1391,7 +1391,7 @@ async function submitForm(opts){
   btn.disabled=false; btn.textContent=label;
 }
 
-const valW=wireForm('valForm','valBar','valMsg',["Let's start with the address","Good start, keep going","Almost there, two more","All set. Send it over."]);
+const valW=wireForm('valForm','valBar','valMsg',["Start with your name","Good start, keep going","Almost there, two more","All set. Send it over."]);
 const conW=wireForm('conForm','conBar','conMsg',["Start with your name","Nice, keep going","You're almost done","Perfect. Send it and we'll call you."]);
 valW.form.addEventListener('submit',e=>{e.preventDefault();submitForm({form:valW.form,fields:valW.fields,thanksId:'valThanks',formType:'HOME VALUATION REQUEST',btn:e.submitter||valW.form.querySelector('button[type=submit]')});});
 conW.form.addEventListener('submit',e=>{e.preventDefault();submitForm({form:conW.form,fields:conW.fields,thanksId:'conThanks',formType:'CONSULTATION REQUEST',btn:e.submitter||conW.form.querySelector('button[type=submit]')});});
@@ -1421,5 +1421,7 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('on'))closeConsult();});
 </script>
+<script src="/partial-lead.js?v=1"></script>
+<script>PartialLead({"name": "#v_name", "key": "154a798d-96fa-4bf1-aa90-718b19edbd9d", "site": "konnextionrealestate.com", "brand": "Konnextion Real Estate Group", "btnClass": "btn btn-sun", "noteClass": "fineprint", "form": "#valForm", "phone": "#v_phone", "moveBefore": "#v_street", "label": "Valuation", "clearBtn": "[data-clear=\"valForm\"]"});PartialLead({"name": "#c_name", "key": "154a798d-96fa-4bf1-aa90-718b19edbd9d", "site": "konnextionrealestate.com", "brand": "Konnextion Real Estate Group", "btnClass": "btn btn-sun", "noteClass": "fineprint", "form": "#conForm", "phone": "#c_phone", "label": "Consultation", "clearBtn": "[data-clear=\"conForm\"]"});</script>
 </body>
 </html>
