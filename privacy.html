@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Owner opt-out (added 2026-10-26): open any page once with ?me=on on each phone or computer you use,
+     and visits from that browser stop counting in Google Analytics. ?me=off turns counting back on. -->
+<script>(function(){try{var q=location.search,k="pae_owner",t=null;
+if(/[?&]me=on(&|$)/.test(q)){localStorage.setItem(k,"1");t="on";}
+if(/[?&]me=off(&|$)/.test(q)){localStorage.removeItem(k);t="off";}
+if(localStorage.getItem(k)==="1"){["G-7VK9SGKW97","G-V5T66TJ1DP","G-G5Q4NQXFCW","G-EVG12Z587D","G-QG492XDM8T"].forEach(function(id){window["ga-disable-"+id]=true;});window.__paeOwner=true;}
+if(t){document.addEventListener("DOMContentLoaded",function(){var b=document.createElement("div");
+b.textContent=t==="on"?"Owner mode ON: your visits from this browser are not counted in Google Analytics.":"Owner mode OFF: visits from this browser count again.";
+b.style.cssText="position:fixed;left:12px;right:12px;bottom:12px;z-index:99999;background:#14283F;color:#fff;font:600 14px/1.4 Arial,sans-serif;padding:12px 14px;border-radius:10px;text-align:center;box-shadow:0 4px 16px rgba(0,0,0,.3)";
+document.body.appendChild(b);setTimeout(function(){b.remove();},7000);});}}catch(e){}})();</script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EVG12Z587D"></script>
 <script>
